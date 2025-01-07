@@ -20,7 +20,7 @@ def createTask():
 
   tasks.append(newTask)
 
-  return jsonify({ "message": "Nova tarefa criada com sucesso" })
+  return jsonify({ "message": "Nova tarefa criada com sucesso" }), 201
 
 @app.route("/tasks", methods=["GET"])
 def getTasks():
@@ -31,7 +31,7 @@ def getTasks():
     "totalTasks": len(taskList)
   }
 
-  return jsonify(output)
+  return jsonify(output), 200
 
 @app.route("/tasks/<int:id>", methods=["GET"])
 def getTask(id):

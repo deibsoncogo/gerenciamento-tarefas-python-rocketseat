@@ -33,5 +33,13 @@ def getTasks():
 
   return jsonify(output)
 
+@app.route("/tasks/<int:id>", methods=["GET"])
+def getTask(id):
+  for task in tasks:
+    if task.id == id:
+      return jsonify(task.toDict()), 200
+
+  return jsonify({ "message": "Não foi possível encontrar a tarefa"}), 404
+
 if __name__ == "__main__":
   app.run(debug=True)

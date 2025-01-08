@@ -26,3 +26,10 @@ def testGetTasks():
   assert response.status_code == 200
   assert "tasks" in responseJson
   assert "totalTasks" in responseJson
+
+def testGetTask():
+  response = requests.get(f"{BASE_URL}/tasks/{tasks[0]}")
+  responseJson = response.json()
+
+  assert response.status_code == 200
+  assert tasks[0] == responseJson["id"]

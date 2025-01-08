@@ -18,3 +18,11 @@ def testCreateTask():
   assert response.status_code == 201
   assert "message" in responseJson
   assert "id" in responseJson
+
+def testGetTasks():
+  response = requests.get(f"{BASE_URL}/tasks")
+  responseJson = response.json()
+
+  assert response.status_code == 200
+  assert "tasks" in responseJson
+  assert "totalTasks" in responseJson

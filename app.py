@@ -20,7 +20,7 @@ def createTask():
 
   tasks.append(newTask)
 
-  return jsonify({ "message": "Nova tarefa criada com sucesso" }), 201
+  return jsonify({ "message": "Nova tarefa criada com sucesso", "id": newTask.id }), 201
 
 @app.route("/tasks", methods=["GET"])
 def getTasks():

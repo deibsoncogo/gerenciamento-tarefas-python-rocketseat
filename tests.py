@@ -44,3 +44,10 @@ def testUpdateTask():
   response = requests.put(f"{BASE_URL}/tasks/{tasks[0]}", json=data)
 
   assert response.status_code == 204
+
+def testDeleteTask():
+  response = requests.delete(f"{BASE_URL}/tasks/{tasks[0]}")
+  responseJson = response.json()
+
+  assert response.status_code == 205
+  assert "message" in responseJson

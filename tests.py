@@ -1,5 +1,4 @@
 import requests
-import pytest
 
 BASE_URL = "http://127.0.0.1:5000"
 tasks = []
@@ -7,7 +6,7 @@ tasks = []
 def testCreateTask():
   data = {
     "title": "Title",
-    "description": "description"
+    "description": "Description"
   }
 
   response = requests.post(f"{BASE_URL}/tasks", json=data)

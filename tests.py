@@ -6,8 +6,8 @@ tasks = []
 
 def testCreateTask():
   data = {
-    "title": "Estudar Python",
-    "description": "APIs com Flask"
+    "title": "Title",
+    "description": "description"
   }
 
   response = requests.post(f"{BASE_URL}/tasks", json=data)
@@ -33,3 +33,14 @@ def testGetTask():
 
   assert response.status_code == 200
   assert tasks[0] == responseJson["id"]
+
+def testUpdateTask():
+  data = {
+    "title": "Title Test Update",
+    "description": "Description Test Update",
+    "completed": True
+  }
+
+  response = requests.put(f"{BASE_URL}/tasks/{tasks[0]}", json=data)
+
+  assert response.status_code == 204
